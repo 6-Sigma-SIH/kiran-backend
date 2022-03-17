@@ -25,7 +25,7 @@ mongoose.connect(config.mongodb.url, config.mongodb.mongoOptions).then(
 // const certs = httpsLocalhost.getCerts();
 const app = express();
 const server = require("http").Server(app);
-require("./app/modules/Portal/socket/socket")(server);
+require("./app/modules/kiran/socket/socket")(server);
 
 app.get("/", function (req, res, next) {
   res.send("welcome to kiran app");

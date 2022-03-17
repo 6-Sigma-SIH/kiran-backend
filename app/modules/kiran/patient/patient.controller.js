@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Controller = require("../../Base/Controller");
 const FrequentUtility = require("../../../services/Frequent");
 const frequentUtility = new FrequentUtility();
-const Patients = mongoose.model("Patients");
+const Patients = mongoose.model("Patient");
 
 class PatientsController extends Controller {
   async addPatient() {

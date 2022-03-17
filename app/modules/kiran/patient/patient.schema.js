@@ -13,8 +13,9 @@ const PatientSchema = new schema({
   medicalDetails: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "MedicalDetails",
+    default: null,
   },
-  gender: { type: String, enum: ["Male", "Female"], required: true },
+  gender: { type: String, enum: ["Male", "Female","Others"], required: true },
   phoneNo: { type: String, required: true },
   email: { type: String, required: true },
   createdAt: { type: Date, default: Date.now },
