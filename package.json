@@ -8,8 +8,7 @@
     "start": "node app.js",
     "dev": "nodemon app.js"
   },
-  "author": "Manan Karani, Niyati Karani",
-  "license": "ISC",
+  "author": "SixSigma",
   "dependencies": {
     "async": "^3.2.3",
     "compression": "^1.7.4",
