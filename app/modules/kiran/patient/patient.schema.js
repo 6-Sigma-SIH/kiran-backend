@@ -45,7 +45,6 @@ PatientSchema.pre("save", function (next) {
     return next();
   }
 });
-
 PatientSchema.methods.comparePassword = function (password) {
   return new Promise((resolve, reject) => {
     bcrypt.compare(password, this.password, function (error, isMatch) {
@@ -57,7 +56,6 @@ PatientSchema.methods.comparePassword = function (password) {
     });
   });
 };
-
 mongoose.model("Patient", PatientSchema, "Patient");
 
 const ResultSchema = new schema({
@@ -72,7 +70,6 @@ const ResultSchema = new schema({
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
 });
-
 mongoose.model("Result", ResultSchema, "Result");
 
 const MedicalDetailsSchema = new schema({
@@ -87,5 +84,4 @@ const MedicalDetailsSchema = new schema({
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
 });
-
 mongoose.model("MedicalDetails", MedicalDetailsSchema, "MedicalDetails");
