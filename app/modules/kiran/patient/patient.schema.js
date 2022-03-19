@@ -4,9 +4,9 @@ const bcrypt = require("bcrypt");
 
 const PatientSchema = new schema({
   patientId: { type: String, required: true },
-  firstName: { type: String, required: true },
-  lastName: { type: String, required: true },
-  age: { type: Number, required: true },
+  firstName: { type: String },
+  lastName: { type: String },
+  age: { type: Number },
   password: { type: String, required: true },
   location: {
     latitude: { type: String, default: 0 },
@@ -17,8 +17,8 @@ const PatientSchema = new schema({
     ref: "MedicalDetails",
     default: null,
   },
-  gender: { type: String, enum: ["Male", "Female", "Others"], required: true },
-  phoneNo: { type: String, required: true },
+  gender: { type: String, enum: ["Male", "Female", "Others"] },
+  phoneNo: { type: String },
   email: { type: String, required: true },
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },
