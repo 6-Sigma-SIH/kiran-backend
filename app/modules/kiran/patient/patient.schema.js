@@ -25,9 +25,8 @@ const PatientSchema = new schema({
 });
 PatientSchema.pre("save", function (next) {
   const admin = this;
-  console.log("pre save");
-
   if (this.isModified("password") || this.isNew) {
+    console.log("pre save");
     bcrypt.genSalt(10, function (saltError, salt) {
       if (saltError) {
         return next(saltError);

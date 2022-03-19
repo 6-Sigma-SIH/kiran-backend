@@ -12,5 +12,11 @@ module.exports = function (app, express) {
     return new PatientsController().boot(req, res).loginPatient();
   });
 
+  router.post('/editProfile', (req, res) => {
+    return new PatientsController().boot(req, res).editProfile();
+  })
+
+
+
   app.use(config, router);
 };

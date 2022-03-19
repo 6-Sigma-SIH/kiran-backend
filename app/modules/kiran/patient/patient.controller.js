@@ -92,7 +92,43 @@ class PatientsController extends Controller {
       console.log(error);
       this.res.json({
         success: false,
-        message: "Error Logging-in Patient",
+        message: "P102: Error Logging-in Patient",
+      });
+    }
+  }
+
+  async editProfile() {
+    try {
+      let { patientId } = this.req.body;
+      let patient = await Patient.findOne({ patientId: patientId }).lean().exec();
+      if (!patient) {
+        return this.res.status(400).json({
+          success: false,
+          message: `patient not found`,
+        });
+      }
+      patient.firstName = this.req.body.firstName;
+      patient.lastName = this.req.body.lastName;
+      patient.age = this.req.body.age;
+      patient.gender = this.req.body.gender;
+      patient.phoneNo = this.req.body.phoneNo;
+      patient.email = this.req.body.email;
+      patient.updatedAt = Date.now();
+      const editedPatient = await Patient.findOneAndUpdate(
+        { patientId: patientId },
+        patient,
+      )
+      return this.res.status(200).json({
+        success: true,
+        message: "Patient Updated Successfully",
+        data: editedPatient,
+      });
+    } catch (error) {
+      console.log(error);
+      return this.res.status(500).json({
+        success: false,
+        message: "P103: Error in editing profile",
+        error: error,
       });
     }
   }
