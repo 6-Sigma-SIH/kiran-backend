@@ -84,3 +84,18 @@ const MedicalDetailsSchema = new schema({
   updatedAt: { type: Date, default: Date.now },
 });
 mongoose.model("MedicalDetails", MedicalDetailsSchema, "MedicalDetails");
+
+const CounsellingSchema = new schema({
+  patientId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Counselling",
+    required: true,
+  },
+  testId: { type: String, required: true },
+  testName: { type: String, required: true },
+  testResult: { type: String, required: true },
+  createdAt: { type: Date, default: Date.now },
+  updatedAt: { type: Date, default: Date.now },
+  personalNotes: { type: String, required: true },
+});
+mongoose.model("Counselling", ResultSchema, "Counselling");
